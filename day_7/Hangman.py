@@ -10,10 +10,11 @@ word_list = ["aardvark", "baboon", "camel"]
 # Check if the letter the user guessed (guess) is one of the
 # letters in the chosen_word.
 
-chosen_word = word_list[random.randint(0, len(word_list)-1)].lower()
+chosen_word = random.choice(word_list).lower()
+print(f'Pssst, the solution is {chosen_word}.')
+your_ans = ['_'] * len(chosen_word)
 guess = input('guess a letter:').lower()
-for ch in chosen_word:
-    if guess == ch:
-        print('Right')
-    else:
-        print('Wrong')
+for i in range(len(chosen_word)):
+    if chosen_word[i] == guess:
+        your_ans[i] = guess
+print(your_ans)
