@@ -13,8 +13,10 @@ word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list).lower()
 print(f'Pssst, the solution is {chosen_word}.')
 your_ans = ['_'] * len(chosen_word)
-guess = input('guess a letter:').lower()
-for i in range(len(chosen_word)):
-    if chosen_word[i] == guess:
-        your_ans[i] = guess
-print(your_ans)
+while (''.join(your_ans) != chosen_word):
+    guess = input('guess a letter:').lower()
+    for i in range(len(chosen_word)):
+        if chosen_word[i] == guess:
+            your_ans[i] = guess
+            print(your_ans)
+
