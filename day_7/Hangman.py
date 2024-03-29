@@ -1,63 +1,9 @@
 import random
-word_list = ["aardvark", "baboon", "camel"]
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+import hangman_art
+import hangman_words
+print(hangman_art.logo)
 lives = 6
-chosen_word = random.choice(word_list).lower()
+chosen_word = random.choice(hangman_words.word_list).lower()
 print(f'Pssst, the solution is {chosen_word}.')
 your_ans = ['_'] * len(chosen_word)
 game = True
@@ -69,7 +15,7 @@ while (''.join(your_ans) != chosen_word and game):
     if guess not in chosen_word:
         lives -= 1
         print(your_ans)
-        print(stages[lives])
+        print(hangman_art.stages[lives])
         if lives == 0:
             game = False
     else:
